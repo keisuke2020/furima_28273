@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -21,5 +22,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:exhibition_image,:name,:product_explanation,
-    :price,:category_id,:status_id,:origin_id,:charge_id,:delivery_id)
+    :price,:category_id,:status_id,:origin_id,:charge_id,:delivery_id).merge(user_id: current_user.id)
+  end
 end
