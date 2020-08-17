@@ -5,12 +5,15 @@ class ItemsController < ApplicationController
   end
 
   def new
+    unless user_signed_in?
+      authenticate_user!
+    else
     @item = Item.new
+    end
   end
   
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
