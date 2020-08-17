@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   price.addEventListener("input", () => {
     let price_num = document.getElementById("item-price").value;
     let tax_price_num;
-    
+    console.log(price);
     tax_price.innerHTML = price_num * 0.1;
     
     tax_price_num = price_num * 0.1;
