@@ -6,15 +6,15 @@ class User < ApplicationRecord
 
   zenkaku = /\A[ぁ-んァ-ン一-龥]/
   kana = /\A[ァ-ヶー－]+\z/
-       
-with_options presence: true do
-  validates :nickname
-  validates :password, length: { minimum: 6 },
-            format: { with: /\A[a-zA-Z0-9]+\z/, message: "is invalid. Input half-width characters."}
-  validates :family_name_full_width, format: { with: zenkaku, message: "is invalid. Input full-width characters."}
-  validates :first_name_full_width, format: { with: zenkaku, message: "is invalid. Input full-width characters."}
-  validates :family_name_kana_input, format: { with: kana, message: "is invalid. Input full-width katakana characters."}
-  validates :first_name_kana_input, format: { with: kana, message: "is invalid. Input full-width katakana characters."}
-  validates :birthday
+
+  with_options presence: true do
+    validates :nickname
+    validates :password, length: { minimum: 6 },
+                         format: { with: /\A[a-zA-Z0-9]+\z/, message: 'is invalid. Input half-width characters.' }
+    validates :family_name_full_width, format: { with: zenkaku, message: 'is invalid. Input full-width characters.' }
+    validates :first_name_full_width, format: { with: zenkaku, message: 'is invalid. Input full-width characters.' }
+    validates :family_name_kana_input, format: { with: kana, message: 'is invalid. Input full-width katakana characters.' }
+    validates :first_name_kana_input, format: { with: kana, message: 'is invalid. Input full-width katakana characters.' }
+    validates :birthday
   end
 end
