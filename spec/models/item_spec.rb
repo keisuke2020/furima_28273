@@ -13,7 +13,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'nameが40文字以内であれば商品出品が出来る' do
-        @item.name = "aaaaaaaaabbbbbbbbbbccccccccccdddddddddd"
+        @item.name = 'aaaaaaaaabbbbbbbbbbccccccccccdddddddddd'
         expect(@item).to be_valid
       end
 
@@ -23,7 +23,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが9999999以下であれば商品出品ができる' do
-        @item.price = 9999999
+        @item.price = 9_999_999
         expect(@item).to be_valid
       end
     end
@@ -42,9 +42,9 @@ RSpec.describe Item, type: :model do
       end
 
       it 'nameが40文字を超えると商品出品が出来ない' do
-        @item.name = "aaaaaaaaabbbbbbbbbbccccccccccdddddddddde"
+        @item.name = 'aaaaaaaaabbbbbbbbbbccccccccccdddddddddde'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
 
       it 'product_explanationが空では商品出品が出来ない' do
@@ -65,37 +65,37 @@ RSpec.describe Item, type: :model do
         aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         aaaaaaaaaaaaaaaaaaaaaaaab"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product explanation is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Product explanation is too long (maximum is 1000 characters)')
       end
 
       it 'category_idの値が１(空)では商品出品が出来ない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it 'status_idの値が１(空)では商品出品が出来ない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status must be other than 1")
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
 
       it 'charge_idの値が１(空)では商品出品が出来ない' do
         @item.charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Charge must be other than 1")
+        expect(@item.errors.full_messages).to include('Charge must be other than 1')
       end
 
       it 'origin_idの値が１(空)では商品出品が出来ない' do
         @item.origin_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Origin must be other than 1")
+        expect(@item.errors.full_messages).to include('Origin must be other than 1')
       end
 
       it 'delivery_idの値が１(空)では商品出品が出来ない' do
         @item.delivery_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery must be other than 1")
+        expect(@item.errors.full_messages).to include('Delivery must be other than 1')
       end
 
       it 'priceが空では商品出品が出来ない' do
@@ -107,13 +107,13 @@ RSpec.describe Item, type: :model do
       it 'priceの値が300未満だと商品出品が出来ない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is too small(greater than or equal to 300)")
+        expect(@item.errors.full_messages).to include('Price is too small(greater than or equal to 300)')
       end
 
       it 'priceの値が9999999を超えると商品出品が出来ない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is too large(less than or equal to 9999999)")
+        expect(@item.errors.full_messages).to include('Price is too large(less than or equal to 9999999)')
       end
     end
   end
