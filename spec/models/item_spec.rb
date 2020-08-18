@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
       @item = FactoryBot.build(:item)
     end
     context '商品出品が出来る時' do
-      it 'exhibition_image,name,product_explanation,price,
+      it 'image,name,product_explanation,price,
       category_id,charge_id,delivery_id,origin_id
       status_id,user_idが全て存在すれば商品出品が出来る' do
         expect(@item).to be_valid
@@ -29,10 +29,10 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品出品が出来ない時' do
-      it 'exhibition_imageが空では商品出品が出来ない' do
-        @item.exhibition_image = nil
+      it 'imageが空では商品出品が出来ない' do
+        @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Exhibition image can't be blank")
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 
       it 'nameが空では商品出品が出来ない' do

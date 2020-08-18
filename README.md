@@ -21,7 +21,7 @@
 
 | Column                        | Type       |  Options                       |
 | ----------------------------- | ---------- | ------------------------------ |
-| exhibition_image              | blob       | null: false                    |
+| image                         | blob       | null: false                    |
 | name                          | text       | null: false                    |
 | product_explanation           | text       | null: false                    |
 | price                         | integer    | null: false                    |
@@ -29,7 +29,7 @@
 | status_id                     | integer    | null: false                    |
 | origin_id                     | integer    | null: false                    |
 | charge _id                    | integer    | null: false                    |
-| delivery_id   　　　　　　　    | integer    | null: false                    |
+| delivery_id                   | integer    | null: false                    |
 | user                          | references | null: false, foreign_key: true |
 
 ### Association
