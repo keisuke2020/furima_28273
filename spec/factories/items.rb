@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    exhibition_image     { '#<ActionDispatch::Http::UploadedFile:0x00007fbc1a36b658>' }
+    image                { '#<ActionDispatch::Http::UploadedFile:0x00007fbc1a36b658>' }
     name                 { 'テスト商品' }
     product_explanation  { '説明文です' }
     price                { 500 }
