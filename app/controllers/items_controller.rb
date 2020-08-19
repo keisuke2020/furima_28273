@@ -29,8 +29,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(paramas[:id])
+    item = Item.find(params[:id])
     item.update(item_params)
+    redirect_to item_path(item.id)
   end
 
   private
