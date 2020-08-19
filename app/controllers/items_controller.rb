@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @items = Item.all.order(created_at: :desc)
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def new
     if user_signed_in?
       @item = Item.new
