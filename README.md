@@ -42,7 +42,7 @@
 | Column                    | Type       |  Options                       |
 | ------------------------- | ---------- | ------------------------------ |
 | user                      | references | null: false, foreign_key: true |
-| items                     | references | null: false, foreign_key: true |
+| item                      | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :user
@@ -53,12 +53,12 @@
 | Column                    | Type       |  Options                       |
 | ------------------------- | ---------- | ------------------------------ |
 | postal_code               | integer    | null: false                    |
-| prefectures               | string     | null: false                    |
+| prefectures_id            | integer    | null: false                    |
 | city                      | string     | null: false                    |
 | house_number              | string     | null: false                    |
 | building_name             | string     | null: true                     |
 | phone_number              | string     | null: false                    |
-| items                     | references | null: false, foreign_key: true |
+| item                      | references | null: false, foreign_key: true |
 
 ## Association
 - belongs_to :item
