@@ -32,7 +32,7 @@
   <% end %> 
 
   <% if @item != nil &&  %>
-    <%= link_to '購入画面に進む', transactions_path ,class:"item-red-btn"%>
+    <%= link_to '購入画面に進む', item_transactions_path(@item.id) ,class:"item-red-btn"%>
   <% end %>
 
 
