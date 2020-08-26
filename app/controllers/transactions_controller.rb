@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def create
+  def createpra
     @item = FurimaApp.new(item_params)
     if @item.valid?
       pay_item

@@ -3,9 +3,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
+    @purchases = Purchase.all
   end
 
   def show
+    @purchases = Purchase.all
+    # @purchases = Purchase.find(params[:item_id])
   end
 
   def new
