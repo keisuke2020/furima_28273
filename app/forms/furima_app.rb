@@ -1,14 +1,23 @@
 class FurimaApp
 
   include ActiveModel::Model
-  attr_accessor :
+  attr_accessor :number, :exp_month, :exp_year, :cvc, :token,
+                :postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :price, :user_id, :item_id
+
+  with_options presence: true do
+    validates :postal_code
+    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :city
+    validates :house_number
+    validates :phone_number
+  end
+                      
+    # validates :building_name
 
   def save
-    # ユーザーの情報を保存し、「user」という変数に入れている
-    user = User.create(name: name, name_reading: name_reading, nickname: nickname)
-    # 住所の情報を保存
-    Address.create(postal_code: postal_code, prefecture: prefecture, city: city, house_number: house_number, building_name: building_name,user_id: user.id)
-    # 寄付金の情報を保存
-    Donation.create(price: price, user_id: user.id)
+    
+    Purchase.create(user_id: user_id,item_id: item_id)
+    
+    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name,phone_number: phone_number,item_id: item_id)
   end
 end
