@@ -24,15 +24,15 @@ RSpec.describe FurimaApp, type: :model do
       end
 
       it 'postal_codeにハイフンが無ければ保存できないこと' do
-        @furima_app.postal_code = 1234567
+        @furima_app.postal_code = 1_234_567
         @furima_app.valid?
-        expect(@furima_app.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@furima_app.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefecture_idが1の値では保存できないこと' do
         @furima_app.prefecture_id = 1
         @furima_app.valid?
-        expect(@furima_app.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@furima_app.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
       it 'cityが空では保存できないこと' do
@@ -54,13 +54,10 @@ RSpec.describe FurimaApp, type: :model do
       end
 
       it 'phone_numberが12桁以上では保存できないこと' do
-        @furima_app.phone_number = 123456789012
+        @furima_app.phone_number = 123_456_789_012
         @furima_app.valid?
-        expect(@furima_app.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+        expect(@furima_app.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
-
     end
-
   end
 end
-
