@@ -1,7 +1,8 @@
 class TransactionsController < ApplicationController
   def index
+    @item = Item.find(params[:item_id])
     if user_signed_in?
-      @item = Item.find(params[:item_id])
+      
       if current_user.id == @item.user.id
         redirect_to root_path
       end
@@ -10,7 +11,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def createpra
+  def create
     @item = FurimaApp.new(item_params)
     if @item.valid?
       pay_item
