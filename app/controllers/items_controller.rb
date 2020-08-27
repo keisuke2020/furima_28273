@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_purchase, only: [:index, :show]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -54,5 +55,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_purchase
+    @purchases = Purchase.all
   end
 end
