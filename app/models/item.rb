@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name,                length: { maximum: 40 }
     validates :product_explanation, length: { maximum: 1000 }
     validates :price,               numericality: { greater_than_or_equal_to: 300 },
@@ -25,5 +25,5 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one    :purchase
   has_one    :address
-  has_one_attached :image
+  has_many_attached :images
 end
