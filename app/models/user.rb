@@ -23,5 +23,11 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    # sns認証したことがあればアソシエーションで取得
+   # 無ければemailでユーザー検索して取得orビルド(保存はしない)
+    user = User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+      email: auth.info.email
+    )
   end
 end
