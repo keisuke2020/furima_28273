@@ -1,4 +1,5 @@
 <%= render "shared/second-header"%>
+<% breadcrumb :purchase, @item %>
 
 <div class='transaction-contents'>
   <div class='transaction-main'>
@@ -7,7 +8,7 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
+      <%= image_tag @item.images.first, class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
           <%= @item.product_explanation %>
