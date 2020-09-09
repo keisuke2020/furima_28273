@@ -24,6 +24,10 @@
     </div>
     <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
+  <%# SNS認証を行っている場合の処理 %>
+  <%if @sns_id.present? %>
+    <%= hidden_field_tag :sns_auth, true %>
+  <% else %>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">パスワード</label>
@@ -39,6 +43,7 @@
     </div>
     <%= f.password_field :encrypted_password, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
   </div>
+  <% end %>
   <div class="form-group">
     <p class='form-info-header'>
       本人確認
@@ -85,23 +90,6 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
-    <%# SNS認証を行っている場合の処理 %>
-    <%if @sns_id.present? %>
-    <%= hidden_field_tag :sns_auth, true %>
-    <% else %>
-    <div class="field">
-     <%= f.label :password %>
-     <% @minimum_password_length %>
-     <em>(<%= @minimum_password_length %> characters minimum)</em>
-     <br />
-     <%= f.password_field :password, autocomplete: "new-password" %>
-   </div>
-
-   <div class="field">
-     <%= f.label :password_confirmation %><br />
-     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-   </div>
- <% end %>
     <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
   <div class="form-group">
