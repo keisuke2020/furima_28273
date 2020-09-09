@@ -1,4 +1,5 @@
 <%= render "shared/second-header"%>
+<% breadcrumb :registration %>
 
 <%= form_with url:user_registration_path, model:@user, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>

@@ -7,13 +7,13 @@ crumb :item do
   parent :root
 end
 
-crumb :show do
-  link "商品詳細", item_path(item.id)
+crumb :show do |item|
+  link "商品詳細", item
   parent :root
 end
 
-crumb :purchase do
-  link "商品購入", item_transactions_path(@item.id)
+crumb :purchase do |item|
+  link "商品購入", item
   parent :show
 end
 
@@ -27,7 +27,7 @@ crumb :newsns do
   parent :root
 end
 
-crumb :session do
+crumb :registration do
   link "新規登録２", new_user_session_path
   parent :newsns
 end
